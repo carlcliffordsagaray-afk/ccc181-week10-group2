@@ -1,0 +1,60 @@
+.auth-alert {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  color: var(--error);
+  background: var(--surface);
+  border: 2px solid var(--error);
+  border-radius: var(--radius);
+  overflow-wrap: anywhere; 
+}
+
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
+.session-check__text {
+  margin: 0;
+  color: var(--muted);
+}
+
+
+.welcome-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.welcome-card__title {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.welcome-card__email {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.welcome-card__logout {
+  width: 100%; 
+}
+
+
+@media (min-width: 768px) {
+  .welcome-card__logout {
+    width: auto;
+    align-self: flex-start;
+    min-width: 10rem;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .welcome-card__title {
+    font-size: 2rem;
+  }
+}
