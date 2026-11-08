@@ -87,8 +87,32 @@ README-part2-section.md
 | --- | --- | --- | --- | --- |
 | 1 (leader) | Carl Clifford Sagaray | carlcliffordsagaray-afk | Backend: login (`server/index.js`, `routes/sessions.js`, `data/users.js`) | Set up the Express project in server/ (package.json, .env.example, dotenv, CORS limited to the front end address, express.json). Built POST /api/v1/sessions: it validates the body (400), finds the user by lowercase email, compares the password with bcryptjs against a stored hash, returns the same 401 message for a wrong password or an unknown email, and returns 200 with a 1-hour JWT and the user on success. Added the hashed demo account and the GET /api/v1/health endpoint. |
 | 2 | Andrei Jumao-as | andreijumao-as-commits | Backend: protection and documents (`middleware/`, `routes/users.js`, `docs/`, Postman) | Built the token middleware that reads Authorization: Bearer and verifies the JWT (401 "Not logged in." if missing, wrong or expired), and GET /api/v1/users/me. Added the 404 and 500 error handlers that never leak stack traces. Wrote docs/API-SPEC.md including the events design, made the Postman collection with all 7 requests, and took the Postman screenshots. |
-| 3 |
+| 3 | John Xyrel Vanguardia | johnxyrelvanguardia-cmd | Front end (`src/api/auth.ts`, `src/components/`, `src/styles/auth.css`) | Added the .env.example with VITE_API_URL and ignored .env files. Wrote src/api/auth.ts (login, getMe, token saved in sessionStorage). Updated the login form so the Part 1 checks run first, then the form calls the API with Loading, Success and Error states and friendly messages. Built the Welcome screen with Log out, made the user stay logged in after refresh, and styled the messages and Welcome screen mobile-first in auth.css. |
 
+## DevTools and API test results (Part 2)
+
+| Test | What must be true | Pass? |
+| --- | --- | --- |
+| Health | http://localhost:3000/api/v1/health answers 200 with { "status": "ok" } | Pass |
+| 360 px and 1280 px | The Part 1 layout still works and there is no sideways scrollbar | Pass |
+| Empty form | The red messages appear and no request reaches the API (Network tab is empty) | Pass |
+| Wrong password | The API answers 401, the page shows "Wrong email or password.", stays on the login form with the email kept, and shows no Welcome screen | Pass |
+| Unknown email | Same result as the wrong password | Pass |
+| Correct login | student@campusconnect.test / Campus26: the API answers 200 and the page shows "Welcome, Demo Student" | Pass |
+| Refresh | The user is still logged in (Welcome screen) | Pass |
+| Log out | Back on the login form, and it stays there after a refresh | Pass |
+| Backend stopped | The page shows "Cannot reach the server. Please try again." with no crash and no raw error text | Pass |
+| Postman | Wrong login 401, correct login 200, and GET /users/me without a token 401 | Pass |
+
+
+### Breakpoints I observed (Part 2)
+
+The new styles in auth.css use the same breakpoints as Part 1:
+
+- 768 px: the Log out button stops being full width and keeps a minimum width of 10rem.
+- 1024 px: the "Welcome, (name)" title becomes larger (2rem).
+
+At 360 px, the red error message wraps correctly and there is no sideways scrollbar, even with a long message. No width looked broken.
 
 ## What our group learned in Part 2
 
