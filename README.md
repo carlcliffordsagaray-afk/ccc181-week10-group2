@@ -31,7 +31,7 @@ npm run build        # must finish with no errors before you submit
 
 | Member | Name | GitHub username | CSS file | What I did |
 | --- | --- | --- | --- | --- |
-| 1 (leader) |Carl Clifford Sagaray |carlcliffordsagaray-afk| Backend: login (`server/index.js`, `routes/sessions.js`, `data/users.js`) |Set up the Express project in server/ (package.json, .env.example, dotenv, CORS limited to the front end address, express.json). Built POST /api/v1/sessions: it validates the body (400), finds the user by lowercase email, compares the password with bcryptjs against a stored hash, returns the same 401 message for a wrong password or an unknown email, and returns 200 with a 1-hour JWT and the user on success. Added the hashed demo account and the GET /api/v1/health endpoint.|
+| 1 (leader) |Carl Clifford Sagaray |carlcliffordsagaray-afk| `base.css` |Wrote base.css (mobile-first CSS Grid layout, brand panel, container) with breakpoints at 768, 1024 and 1280 px. Added the viewport meta tag and set up the GitHub repository.|
 | 2 |Andrei Jumao-as |andreijumao-as-commits | `nav.css` |Wrote nav.css (mobile-first Flexbox navbar and CSS Grid footer, 48px touch-friendly links, hover and focus-visible styles) with breakpoints at 768 and 1024 px. |
 | 3 |John Xyrel Vanguardia|johnxyrelvanguardia-cmd | `form.css` |Wrote form.css (mobile-first Flexbox login card, 48px touch-friendly fields and buttons, hover and focus-visible styles) with breakpoints at 768 and 1024 px.|
 ## Experiment 0: the page without the viewport tag
