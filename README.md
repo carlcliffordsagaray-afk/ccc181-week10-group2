@@ -74,8 +74,11 @@ The hardest part for our group was the GitHub workflow. At first we struggled wi
 
 
 README-part2-section.md
+
 | Group number | 2 |
+
 | Section | IT3-A |
+
 | Repository URL | https://github.com/carlcliffordsagaray-afk/ccc181-week10-group2 |
 
 ## Who did what in Part 2 (each member fills in their own row)
@@ -83,8 +86,9 @@ README-part2-section.md
 | Member | Name | GitHub username | Area | What I did in Part 2 |
 | --- | --- | --- | --- | --- |
 | 1 (leader) | Carl Clifford Sagaray | carlcliffordsagaray-afk | Backend: login (`server/index.js`, `routes/sessions.js`, `data/users.js`) | Set up the Express project in server/ (package.json, .env.example, dotenv, CORS limited to the front end address, express.json). Built POST /api/v1/sessions: it validates the body (400), finds the user by lowercase email, compares the password with bcryptjs against a stored hash, returns the same 401 message for a wrong password or an unknown email, and returns 200 with a 1-hour JWT and the user on success. Added the hashed demo account and the GET /api/v1/health endpoint. |
-| 2 | 
+| 2 | Andrei Jumao-as | andreijumao-as-commits | Backend: protection and documents (`middleware/`, `routes/users.js`, `docs/`, Postman) | Built the token middleware that reads Authorization: Bearer and verifies the JWT (401 "Not logged in." if missing, wrong or expired), and GET /api/v1/users/me. Added the 404 and 500 error handlers that never leak stack traces. Wrote docs/API-SPEC.md including the events design, made the Postman collection with all 7 requests, and took the Postman screenshots. |
 | 3 |
+
 
 ## What our group learned in Part 2
 
